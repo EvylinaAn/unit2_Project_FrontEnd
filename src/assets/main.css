@@ -119,3 +119,7 @@ h2, h3, form, .paddedLeft, h4 {
   line-height: 1vmin;
   align-self: center;
 }
+
+/* .buttons-container {
+  display: inline-block;
+} */
