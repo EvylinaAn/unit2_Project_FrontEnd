@@ -1,5 +1,6 @@
 @import './base.css';
 
+/*
 #app {
   max-width: 1280px;
   margin: 0 auto;
@@ -32,4 +33,89 @@ a,
     grid-template-columns: 1fr 1fr;
     padding: 0 2rem;
   }
+} */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgba(156, 121, 183, 0.4);
+  color: black;
+}
+
+nav { 
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(156, 121, 183, 0);
+  padding: 1.5vmin 1.5vmin 0;
+  border-bottom: 1px solid white;
+}
+
+header {
+  background-color: rgba(226, 205, 242, 0.5);
+  border-bottom: 1px solid white;
+  text-align: center;
+}
+
+nav ul {
+  display: flex;
+}
+
+nav ul li {
+  padding: 0.5vmin 1vmin 0;
+}
+
+nav p {
+  font-size: 2vmin;
+}
+
+li{
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: purple;
+}
+
+h1 {
+  /* margin-top: 2vmin; */
+  font-size: 7vmin;
+  font-family: "Tangerine", cursive;
+  font-weight: 700;
+  font-style: normal;
+}
+
+h2, h3, form, .paddedLeft, h4 {
+  padding-left: 2vmin;
+}
+
+#headerH3, header h3 {
+  padding:0 0 2vmin;
+}
+
+.form-check {
+  margin-left: 1vmin;
+  max-width: 30vmin;
+  /* background-color: white; */
+  display: flex;
+  /* align-items: center; */
+}
+
+.form-check-input {
+  /* white-space: initial; */
+  margin-left: 1vmin;
+}
+
+.form-check label {
+  display: block;
+  margin-left: 1vmin;
+}
+
+.form-check button {
+  margin-left: auto;
+  max-height: 2vmin;
+  line-height: 1vmin;
+  align-self: center;
 }
