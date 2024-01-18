@@ -25,10 +25,7 @@ function addTodo() {
   }
   checklist.value.todo = capitalizeFirstLetter(checklist.value.todo);
 
-  fetch(
-    `${import.meta.env.VITE_API_URL}/destination/${
-      route.params.id
-    }/checklist/add`,
+  fetch(`${import.meta.env.VITE_API_URL}/destination/${route.params.id}/checklist/add`,
     {
       method: "POST",
       headers: {
@@ -47,8 +44,11 @@ function addTodo() {
 
 <template>
     <!-- <div class="paddedLeft"> -->
-    <h4>Add new To-do</h4>
-    <form target="_self" @submit.prevent="addTodo">
+    <!-- <h4>Add new To-do</h4> -->
+    <br>
+
+
+    <!-- <form target="_self" @submit.prevent="addTodo">
         <label for="todo"></label>
         <input
         type="text"
@@ -59,6 +59,35 @@ function addTodo() {
         required
         />
         <button type="submit">Add</button>
-    </form>
+    </form> -->
+
+<div class="dropdown">
+  <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+    New Todo
+  </button>
+  <form class="dropdown-menu p-4" @submit.prevent="addTodo">
+  <div class="mb-3">
+    <label for="todo" class="form-label"></label>
+    <input class="form-control" type="text" name="todo" placeholder="To-Do" style="text-align: center" v-model="checklist.todo" required/>
+    <button type="submit" class="btn btn-outline-secondary">+</button>
+  </div>    
+  </form>
+</div>
   <!-- </div> -->
 </template>
+
+
+<style>
+
+.dropdown {
+  display: flex;
+  justify-content: center;
+}
+
+.mb-3 {
+  display: flex;
+  justify-content: row;
+  margin-bottom: 0 !important;
+}
+
+</style>

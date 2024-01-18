@@ -1,46 +1,11 @@
 @import './base.css';
 
-/*
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-weight: normal;
-}
-
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
-}
-
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
-}
-
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
-
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
-} */
-
 * {
   box-sizing: border-box;
 }
 
 body {
-  background-color: rgba(156, 121, 183, 0.4);
+  background-color: rgba(156, 121, 183, 0.2);
   color: black;
 }
 
@@ -80,14 +45,13 @@ a {
 }
 
 h1 {
-  /* margin-top: 2vmin; */
   font-size: 7vmin;
   font-family: "Tangerine", cursive;
   font-weight: 700;
   font-style: normal;
 }
 
-h2, h3, form, .paddedLeft, h4 {
+ h3, form, .paddedLeft, h4 {
   padding-left: 2vmin;
 }
 
@@ -95,31 +59,30 @@ h2, h3, form, .paddedLeft, h4 {
   padding:0 0 2vmin;
 }
 
-.form-check {
-  margin-left: 1vmin;
-  max-width: 30vmin;
-  /* background-color: white; */
+
+.accordion {
+  max-width: 50vmin;
+  padding-bottom: 1vmin;
+  margin:auto;
+}
+
+.accordion-collapse {
+  padding-bottom: 1vmin;
+}
+
+.accordion-body {
   display: flex;
-  /* align-items: center; */
+  padding-bottom: 0;
 }
 
-.form-check-input {
-  /* white-space: initial; */
+.accordion-body .form-check-label {
   margin-left: 1vmin;
 }
 
-.form-check label {
-  display: block;
-  margin-left: 1vmin;
-}
-
-.form-check button {
+.accordion-body .btn {
   margin-left: auto;
+  align-items: flex-end;
   max-height: 2vmin;
   line-height: 1vmin;
-  align-self: center;
 }
 
-/* .buttons-container {
-  display: inline-block;
-} */

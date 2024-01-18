@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import DestinationListView from '../views/DestinationListView.vue'
 import ChecklistView from '../views/ChecklistView.vue'
 import SingleDestinationView from '@/views/SingleDestinationView.vue'
+import LoginView from '@/views/LoginView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -27,6 +28,11 @@ const router = createRouter({
       name: 'checklist',
       component: ChecklistView
     },
+    {
+      path: '/login',
+      name: 'login',
+      component: LoginView
+    }
   ]
 })
 

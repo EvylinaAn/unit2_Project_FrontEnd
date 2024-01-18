@@ -2,29 +2,170 @@
 import { ref, onMounted } from "vue";
 import { RouterLink } from "vue-router";
 
-const destinationBe = ref([])
+const destinationBe = ref([]);
 
 function fetchData() {
-  fetch(`${import.meta.env.VITE_API_URL}/destination`)
-  .then( response => response.json() )
-  .then( result => {
-    destinationBe.value = result
-  })
+  fetch(`${import.meta.env.VITE_API_URL}`)
+    .then((response) => response.json())
+    .then((result) => {
+      destinationBe.value = result;
+    });
 }
-onMounted(fetchData)
+
+// function autoAdvanceCarousel() {
+//   setInterval(() => {
+//     // Trigger the next slide
+//     const carousel = document.getElementById("carouselExampleIndicators");
+//     const nextButton = carousel.querySelector(".carousel-control-next");
+//     nextButton.click();
+//   }, 5000);
+// }
+
+onMounted(() => {
+  fetchData()
+  // autoAdvanceCarousel()
+});
 </script>
 
 <template>
   <header>
+    <br />
     <h1>Breezy Easy Escapade</h1>
     <h3 id="headerH3">"Your one stop spot for a carefree travel"</h3>
+    <br />
   </header>
-  <br>
-  <div class="paddedLeft">
-    <button>
-      <RouterLink :to="'/destination'">
-      Your Destinations
-    </RouterLink>
+  <br />
+<div class="main-carousel">
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://picsum.photos/id/77/400/200" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://picsum.photos/id/57/400/200" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://picsum.photos/id/434/400/200" class="d-block w-100" alt="...">
+    </div>
+  </div>
+</div>
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://picsum.photos/id/164/400/200" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://picsum.photos/id/392/400/200" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://picsum.photos/id/419/400/200" class="d-block w-100" alt="...">
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="paddedSides">
+  <div class="body">
+    <div class="intro">
+      <p>
+        Traveling is not just about discovering new places; it's a therapeutic
+        experience that can positively impact your mental, emotional, and even
+        physical well-being. In recent years, there has been a growing body of
+        research highlighting the various ways in which travel contributes to
+        overall therapeutic benefits.
+      </p>
+    </div>
+    <button class="btn btn-outline-secondary">
+      <RouterLink :to="'/destination'"> Your Destinations </RouterLink>
     </button>
   </div>
+
+    <div class="reasonToTravel">
+      <div class="pointsOnTravel">
+        <h5>Stress Reduction:</h5>
+        <p>Traveling allows individuals to escape from the routine stressors of daily life. The change in environment and the exposure to new cultures and landscapes can significantly reduce stress levels.</p>
+      </div>
+      <div class="pointsOnTravel">
+        <h5>Mindfulness and Presence:</h5>
+        <p>Immersing oneself in a new destination encourages mindfulness. Travelers often find themselves more present and engaged in the moment, appreciating the sights, sounds, and experiences around them.</p>
+      </div>
+      <div class="pointsOnTravel">
+        <h5>Cultural Enrichment:</h5>
+        <p>Experiencing different cultures fosters personal growth and a broader perspective. Exposure to diverse traditions and lifestyles can lead to increased empathy and a deeper understanding of the world.</p>
+      </div>
+      <div class="pointsOnTravel">
+        <h5>Enhanced Creativity:</h5>
+        <p>Traveling exposes individuals to novel experiences and environments, stimulating creativity. Whether it's exploring historical landmarks, interacting with locals, or trying new cuisines, these experiences can inspire creative thinking.</p>
+      </div>
+      <div class="pointsOnTravel">
+        <h5>Connection and Social Well-Being:</h5>
+        <p>Travel often involves meeting new people and forming connections. Positive social interactions and the formation of new friendships during travel contribute to an individual's sense of belonging and social well-being.</p>
+      </div>
+      <div class="pointsOnTravel">
+        <h5>Self-Discovery and Reflection:</h5>
+        <p>Stepping out of one's comfort zone allows for self-discovery. Travel provides individuals with an opportunity to reflect on their lives, goals, and aspirations, leading to personal growth and a better understanding of oneself.</p>
+      </div>
+      <div class="pointsOnTravel">
+        <h5>Physical Health Benefits:</h5>
+        <p>Traveling may involve physical activities such as hiking, walking, or exploring. Engaging in these activities not only promotes physical health but also boosts mood through the release of endorphins.</p>
+      </div>
+      <div class="pointsOnTravel">
+        <h5>Reduced Burnout and Increased Productivity:</h5>
+        <p>Taking a break from the demands of work and daily responsibilities during travel helps prevent burnout. Returning from a well-deserved vacation, individuals often find themselves recharged, leading to increased productivity upon their return.</p>
+      </div>
+    </div>
+    <!-- <div class="body"> -->
+    <div class="conclusion">
+      <p>
+        In conclusion, the therapeutic benefits of travel extend far beyond leisure. 
+        From stress reduction and enhanced creativity to cultural enrichment and improved social well-being, 
+        the act of traveling has the power to positively impact various facets of an individual's life. 
+        As we continue to explore the connection between travel and well-being, 
+        it becomes clear that planning a getaway might just be the prescription for a healthier, more fulfilling life.
+        <RouterLink :to="'/destination'"> Your Destinations </RouterLink>
+      </p>
+    </div>
+  <!-- </div> -->
+  </div>
 </template>
+
+<style>
+.main-carousel {
+  display: flex;
+}
+
+.carousel {
+  width: 50% !important;
+}
+
+.body {
+  margin-top: 2vmin;
+  text-align: center;
+}
+
+.body p {
+  font-size: 2vmin;
+}
+
+.reasonToTravel {
+  margin-top: 2vmin;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px; 
+  }
+
+  .pointsOnTravel {
+    border: 1px solid #ccc; 
+    padding: 10px; 
+  }
+
+  .paddedSides {
+    padding: 0 2vmin;
+  }
+
+  .conclusion {
+    text-align: center;
+    margin-top: 2vmin;
+    font-size: 1.5vmin;
+  }
+</style>
