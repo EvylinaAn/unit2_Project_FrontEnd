@@ -37,7 +37,6 @@ onMounted(() => {
     <div class="wrapper">
       <nav>
         <p>B.E.E</p>
-        <img src="../src/assets/" alt="">
         <ul>
           <li><RouterLink to="/">Home</RouterLink></li>
           <li><RouterLink to="/destination">Destination</RouterLink></li>
@@ -50,4 +49,7 @@ onMounted(() => {
       </nav>
     </div>
   <RouterView />
+  <div class="card-footer text-body-secondary">
+    2 days ago
+  </div>
 </template>

@@ -122,7 +122,16 @@ onMounted(() => {
         the act of traveling has the power to positively impact various facets of an individual's life. 
         As we continue to explore the connection between travel and well-being, 
         it becomes clear that planning a getaway might just be the prescription for a healthier, more fulfilling life.
-        <RouterLink :to="'/destination'"> Your Destinations </RouterLink>
+        <br>
+        With all that being said we want to make it as easy as possible for you when you do travel. From our experience the most 
+        stressful part of traveling, is making sure you've got everything you need to commence your journey in peace.
+        <br>
+        1) So lets start with adding your destination 
+        <RouterLink :to="'/destination'">  here. </RouterLink>  Once you have created a destination, you will have a pre - populated checklist to work with.
+        <br>
+        2) Step 2 is your checklist, one of the most important part for a stress free travel - Stay organized.
+        <span>(we've tried making it as simple as possible and given you a recommended checklist, however feel free todo
+          modify and add more if you please)</span>
       </p>
     </div>
   <!-- </div> -->
@@ -164,8 +173,12 @@ onMounted(() => {
   }
 
   .conclusion {
-    text-align: center;
-    margin-top: 2vmin;
+    /* text-align: center; */
+    margin: 2vmin 0 ;
     font-size: 1.5vmin;
+  }
+
+  .conclusion span {
+    font-size: 1.2vmin;
   }
 </style>
