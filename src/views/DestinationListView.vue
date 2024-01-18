@@ -99,8 +99,10 @@ onMounted(() => {
 
 <template>
   <header>
+    <br>
     <h1>Upcoming Destination</h1>
     <h3>"Where exciting times await"</h3>
+    <br>
   </header>
   <br>
   <h3 v-for="destination in destinationBe" :key="destination.id">

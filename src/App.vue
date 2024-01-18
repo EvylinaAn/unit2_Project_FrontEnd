@@ -34,22 +34,64 @@ onMounted(() => {
 </script>
 
 <template>
+  <body>    
+    <div class="navNRouter">
     <div class="wrapper">
       <nav>
-        <p>B.E.E</p>
+        <div class="logoDiv">
+          <img src="/favicon.ico" alt="bee logo">
+          <!-- <p>B.E.E</p> -->
+          <p v-if="isLoggedIn"> &nbsp;Hello, {{ userName }}</p>
+          <p v-else>B.E.E</p>
+        </div>
         <ul>
           <li><RouterLink to="/">Home</RouterLink></li>
           <li><RouterLink to="/destination">Destination</RouterLink></li>
-          <!-- <li><RouterLink to="/visited">Visited</RouterLink></li> -->
           <li><RouterLink v-if="isLoggedIn" to="/login">Logout</RouterLink> <RouterLink v-else to="/login">Login</RouterLink></li>
           <!-- <li><RouterLink v-if="authStore.isLoggedIn" to="/login" @click="authStore.logout">Logout</RouterLink> <RouterLink v-else to="/login">Login</RouterLink></li> -->
-
-          <!-- <li></li> -->
         </ul>
       </nav>
     </div>
   <RouterView />
-  <div class="card-footer text-body-secondary">
-    2 days ago
-  </div>
+</div>
+    <footer>
+      <div>
+      <img src="/favicon.ico" alt="bee logo">
+      <p>B.E.E</p>
+    </div>
+  </footer>
+</body>
 </template>
+
+
+<style>
+.logoDiv {
+  display: flex;
+}
+
+footer div{
+  display: flex;
+  max-height: 2vmin;
+  justify-content: center;
+  /* text-align: center; */
+}
+
+footer img, .logoDiv img{
+  padding-top: 0.5vmin;
+  height: 20px;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 8px 0 15px;
+  background-color:  rgba(235, 218, 249, 0.6);
+}
+
+.navNRouter {
+  padding-bottom: 5vmin;
+}
+
+</style>

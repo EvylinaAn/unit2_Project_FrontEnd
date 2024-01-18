@@ -15,7 +15,7 @@ function fetchData() {
 // function autoAdvanceCarousel() {
 //   setInterval(() => {
 //     // Trigger the next slide
-//     const carousel = document.getElementById("carouselExampleIndicators");
+//     const carousel = document.getElementByI("carouselExample");
 //     const nextButton = carousel.querySelector(".carousel-control-next");
 //     nextButton.click();
 //   }, 5000);
@@ -35,7 +35,7 @@ onMounted(() => {
     <br />
   </header>
   <br />
-<div class="main-carousel">
+<div class="main-carousel" >
 <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
@@ -62,6 +62,48 @@ onMounted(() => {
     </div>
   </div>
 </div>
+<!-- <div id="" class="carousel slide carouselExample" >
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://picsum.photos/id/77/400/200" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://picsum.photos/id/70/400/200" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://picsum.photos/id/79/400/200" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<div id="" class="carousel slide carouselExample" >
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://picsum.photos/id/77/400/200" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://picsum.photos/id/70/400/200" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://picsum.photos/id/79/400/200" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div> -->
 </div>
 
 <div class="paddedSides">
@@ -147,6 +189,10 @@ onMounted(() => {
   width: 50% !important;
 }
 
+.carousel-control-prev, .carousel-control-next {
+  display: none;
+}
+
 .body {
   margin-top: 2vmin;
   text-align: center;
@@ -175,10 +221,10 @@ onMounted(() => {
   .conclusion {
     /* text-align: center; */
     margin: 2vmin 0 ;
-    font-size: 1.5vmin;
+    font-size: 2vmin;
   }
 
   .conclusion span {
-    font-size: 1.2vmin;
+    font-size: 1.5vmin;
   }
 </style>
