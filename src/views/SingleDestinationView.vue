@@ -23,17 +23,29 @@ onMounted(fetchData);
     <br>
     <h1>Welcome to {{ destination.location }}</h1>
   </header>
-  <div class="paddedLeft">
+  <div class="singleDestination">
     <p>
-      We understand packing and preparing for your trip can get a bit
-      overwhelming, hence we are here to help with your worries. We've got a few
+      We understand that packing and preparing for your trip can get a bit
+      overwhelming, hence we're here to help with your worries. We've got a few
       recommendations of what we think you may need before you start your
       journey, however, feel free to add and edit the checklist as you please.
     </p>
+    <h5>
+      <RouterLink :to="'/destination/' + destination._id + '/checklist'">
+        <button class="btn btn-outline-secondary">CHECKLIST</button>
+      </RouterLink>
+    </h5>
   </div>
-  <h3>
-    <RouterLink :to="'/destination/' + destination._id + '/checklist'">
-      Checklist
-    </RouterLink>
-  </h3>
 </template>
+
+<style>
+.singleDestination {
+ max-width: 60vmin;
+ margin: 2vmin auto;
+ text-align: center;
+}
+
+.singleDestination p {
+  font-size: 2vmin;
+}
+</style>

@@ -62,48 +62,7 @@ onMounted(() => {
     </div>
   </div>
 </div>
-<!-- <div id="" class="carousel slide carouselExample" >
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="https://picsum.photos/id/77/400/200" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="https://picsum.photos/id/70/400/200" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="https://picsum.photos/id/79/400/200" class="d-block w-100" alt="...">
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-<div id="" class="carousel slide carouselExample" >
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="https://picsum.photos/id/77/400/200" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="https://picsum.photos/id/70/400/200" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="https://picsum.photos/id/79/400/200" class="d-block w-100" alt="...">
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div> -->
+
 </div>
 
 <div class="paddedSides">
@@ -168,12 +127,14 @@ onMounted(() => {
         With all that being said we want to make it as easy as possible for you when you do travel. From our experience the most 
         stressful part of traveling, is making sure you've got everything you need to commence your journey in peace.
         <br>
-        1) So lets start with adding your destination 
-        <RouterLink :to="'/destination'">  here. </RouterLink>  Once you have created a destination, you will have a pre - populated checklist to work with.
-        <br>
-        2) Step 2 is your checklist, one of the most important part for a stress free travel - Stay organized.
-        <span>(we've tried making it as simple as possible and given you a recommended checklist, however feel free todo
-          modify and add more if you please)</span>
+        <div class="steps">
+            1) So lets start with adding your destination 
+            <RouterLink :to="'/destination'">  here. </RouterLink>  Once you have created a destination, you will have a pre - populated checklist to work with.
+            <br>
+            2) Step 2 is your checklist, one of the most important part for a stress free travel - Stay organized.
+            <span>(we've tried making it as simple as possible and given you a recommended checklist, however feel free todo
+              modify and add more if you please)</span>
+        </div>
       </p>
     </div>
   <!-- </div> -->
@@ -198,19 +159,26 @@ onMounted(() => {
   text-align: center;
 }
 
-.body p {
+.intro p {
   font-size: 2vmin;
+  max-width: 80vmin;
+  margin: auto auto 2vmin;
+  background-color: rgba(88, 102, 31, 0.1);
+  padding: 2vmin;
+  border-radius: 10px;
 }
 
 .reasonToTravel {
-  margin-top: 2vmin;
+    margin-top: 2vmin;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px; 
   }
 
   .pointsOnTravel {
-    border: 1px solid #ccc; 
+    border: 1px solid purple; 
+  /* background-color: rgba(88, 102, 31, 0.6); */
+
     padding: 10px; 
   }
 
@@ -219,12 +187,23 @@ onMounted(() => {
   }
 
   .conclusion {
-    /* text-align: center; */
-    margin: 2vmin 0 ;
-    font-size: 2vmin;
+    text-align: center;
+    margin: 2vmin auto ;
+    font-size: 1.5vmin;
+    max-width: 90vmin;
+  }
+
+  .steps {
+    /* background-color: rgba(235, 218, 249, 0.4); */
+    background-color: rgba(88, 102, 31, 0.1);
+    text-align: left;
+    padding: 1vmin;
+    max-width: 70vmin;
+    margin: 2vmin auto;
+    border-radius: 10px;
   }
 
   .conclusion span {
     font-size: 1.5vmin;
   }
-</style>
+ </style> 

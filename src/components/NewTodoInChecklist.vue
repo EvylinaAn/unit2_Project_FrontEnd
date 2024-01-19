@@ -43,8 +43,7 @@ function addTodo() {
 </script>
 
 <template>
-    <!-- <div class="paddedLeft"> -->
-    <!-- <h4>Add new To-do</h4> -->
+
     <br>
 
 
@@ -82,6 +81,8 @@ function addTodo() {
 .dropdown {
   display: flex;
   justify-content: center;
+  max-width: 70vmin;
+  margin: auto;
 }
 
 .mb-3 {

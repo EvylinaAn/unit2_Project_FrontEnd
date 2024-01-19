@@ -1,30 +1,14 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
-import { useCookies } from 'vue3-cookies'
-import { decodeCredential } from 'vue3-google-login'
-import { ref, onMounted } from 'vue'
-// import  { useAuthStore } from './store/authStore.js';
+import { onMounted, provide } from 'vue'
+import { isLoggedIn, userName, userEmail, userSub, checkSession } from '@/stores/globalProvider.js'
 
-const { cookies } = useCookies()
-const isLoggedIn = ref(false)
-const userName = ref('')
-// const authStore = useAuthStore();
 
-// const loggedState = () => {
-//   authStore.isLoggedIn.value = cookies.isKey('user_session');
-//   if (authStore.isLoggedIn) {
-//      const userData = decodeCredential(cookies.get('user_session'));
-//      authStore.userName = userData.given_name;
-//   }
-// }
-
-const checkSession = () => {
-    if( cookies.isKey('user_session') ) {
-        isLoggedIn.value = true
-        const userData = decodeCredential(cookies.get('user_session'))
-        userName.value = userData.given_name
-    }
-}
+provide('isLoggedIn', isLoggedIn);
+provide('userName', userName);
+provide('userSub', userSub);
+provide('userEmail', userEmail);
+provide('checkSession', checkSession);
 
 onMounted(() => {
   checkSession()
@@ -36,31 +20,31 @@ onMounted(() => {
 <template>
   <body>    
     <div class="navNRouter">
-    <div class="wrapper">
-      <nav>
-        <div class="logoDiv">
-          <img src="/favicon.ico" alt="bee logo">
-          <!-- <p>B.E.E</p> -->
-          <p v-if="isLoggedIn"> &nbsp;Hello, {{ userName }}</p>
-          <p v-else>B.E.E</p>
-        </div>
-        <ul>
-          <li><RouterLink to="/">Home</RouterLink></li>
-          <li><RouterLink to="/destination">Destination</RouterLink></li>
-          <li><RouterLink v-if="isLoggedIn" to="/login">Logout</RouterLink> <RouterLink v-else to="/login">Login</RouterLink></li>
-          <!-- <li><RouterLink v-if="authStore.isLoggedIn" to="/login" @click="authStore.logout">Logout</RouterLink> <RouterLink v-else to="/login">Login</RouterLink></li> -->
-        </ul>
-      </nav>
+      <div class="wrapper">
+         <nav>
+          <RouterLink to="/">
+            <div class="logoDiv">
+              <img src="/favicon.ico" alt="bee logo">
+              <p v-if="isLoggedIn"> &nbsp;Hello, {{ userName }}</p>
+              <p v-else>B.E.E</p>
+            </div>
+          </RouterLink>
+           <ul>
+              <li><RouterLink to="/">Home</RouterLink></li>
+              <li><RouterLink to="/destination">Destination</RouterLink></li>
+              <li><RouterLink v-if="isLoggedIn" to="/login">Logout</RouterLink> <RouterLink v-else to="/login">Login</RouterLink></li>
+            </ul>
+         </nav>
+      </div>
+       <RouterView />
     </div>
-  <RouterView />
-</div>
-    <footer>
-      <div>
-      <img src="/favicon.ico" alt="bee logo">
-      <p>B.E.E</p>
-    </div>
-  </footer>
-</body>
+      <footer>
+       <div>
+         <img src="/favicon.ico" alt="bee logo">
+         <p>B.E.E</p>
+       </div>
+      </footer>
+  </body>
 </template>
 
 
@@ -73,12 +57,17 @@ footer div{
   display: flex;
   max-height: 2vmin;
   justify-content: center;
+  margin-top: 0.5vmin;
   /* text-align: center; */
 }
 
-footer img, .logoDiv img{
-  padding-top: 0.5vmin;
-  height: 20px;
+footer img{
+  /* padding-top: 0.5vmin; */
+  height: 22px;
+}
+
+.logoDiv img {
+  height: 22px;
 }
 
 footer {
@@ -87,7 +76,9 @@ footer {
   width: 100%;
   text-align: center;
   padding: 8px 0 15px;
-  background-color:  rgba(235, 218, 249, 0.6);
+  /* background-color:  rgba(235, 218, 249, 0.6); */
+  /* background-color: rgba(226, 205, 242, 0.6);} */
+  background-color: rgba(88, 102, 31, 0.6);
 }
 
 .navNRouter {

@@ -1,16 +1,13 @@
 <script setup>
-import { ref } from 'vue'
-import { useCookies } from 'vue3-cookies'
-import { decodeCredential } from 'vue3-google-login'
+import { ref, inject } from 'vue'
 
-const { cookies } = useCookies()
 const { fetchData } = defineProps(["fetchData"])
+const userEmail = inject('userEmail')
+const checkSession = inject('checkSession')
 
 const destination = ref({
     location: ''
 })
-const userEmail = ref()
-// let isLoggedIn = ref(false)
 
 function clearForm() {
     destination.value = {
@@ -44,22 +41,32 @@ function addDestination() {
     .catch(err => console.error(err))
 }
 
-const checkSession = () => {
-    if( cookies.isKey('user_session') ) {
-        // isLoggedIn.value = true
-        const userData = decodeCredential(cookies.get('user_session'))
-        userEmail.value = userData.email
-    }
-}
-
 </script>
 
 <template>
-    <h3>Add new Destination</h3>
-    <h4>What! Got a holiday planned? Let's get the planning started!</h4>
-    <form target="_self" @submit.prevent="addDestination">
+    <h4>Add new Destination</h4>
+    <form target="_self" @submit.prevent="addDestination" class="newDestinationForm">
         <label for="destination"></label>
-        <input type="text" name="destination" placeholder="destination" style="text-align: center;" v-model="destination.location" required>
-        <button type="submit">Add</button>
+        <input type="text" name="destination" placeholder="destination" class="form-control" v-model="destination.location" required>
+        <button type="submit" class="btn btn-outline-secondary"><img src="/favicon.ico" alt="bee logo"></button>
     </form>
 </template>
+
+<style>
+.newDestinationForm .btn-outline-secondary {
+    max-height: 4vmin;
+    margin-bottom: 0.5vmin;
+}
+
+button img {
+    height: 24px;
+    padding-bottom: 5px;
+}
+
+.form-control {
+    padding-left: 4vmin;
+    text-align: center;
+    display: inline;
+    width: 70%;
+}
+</style>
