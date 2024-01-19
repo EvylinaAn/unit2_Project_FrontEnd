@@ -158,7 +158,7 @@ onMounted(() => {
 
 .intro p {
   font-size: 2vmin;
-  max-width: 80vmin;
+  max-width: 90vmin;
   margin: auto auto 2vmin;
   background-color: rgba(88, 102, 31, 0.1);
   padding: 2vmin;
@@ -197,7 +197,7 @@ onMounted(() => {
     background-color: rgba(88, 102, 31, 0.1);
     text-align: left;
     padding: 1vmin;
-    max-width: 70vmin;
+    max-width: 80vmin;
     margin: 2vmin auto;
     border-radius: 10px;
     font-family: "Salsa", cursive;

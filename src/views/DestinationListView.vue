@@ -129,7 +129,7 @@ onMounted(() => {
 
 <style>
 .article p{
-  max-width: 80vmin;
+  max-width: 90vmin;
   margin: auto;
   text-align: center;
   padding-bottom: 2vmin;
