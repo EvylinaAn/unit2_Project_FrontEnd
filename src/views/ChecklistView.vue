@@ -39,6 +39,7 @@ onMounted(() => {
   <header>
     <br>
     <h1>Checklist</h1>
+    <br>
   </header>
   <br>
   <div class="main">
@@ -80,11 +81,15 @@ onMounted(() => {
   flex-direction: column;
   max-height: 50vmin;
   overflow-y: auto;
+  border-bottom: 1px solid rgba(152, 164, 106, 0.2);
+  font-family: "Salsa", cursive;
+  font-weight: 400;
+  font-style: normal;
+  /* background-color: white; */
 }
 
 #collapseOne {
-  background-color: rgba(152, 164, 106, 0.1);
-  border-color: rgba(152, 164, 106, 2);
+  border-color: rgba(152, 164, 106, 9);
 }
 
 .accordion-header-fixed{

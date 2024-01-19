@@ -22,6 +22,7 @@ onMounted(fetchData);
   <header>
     <br>
     <h1>Welcome to {{ destination.location }}</h1>
+    <br>
   </header>
   <div class="singleDestination">
     <p>

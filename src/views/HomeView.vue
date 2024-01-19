@@ -36,33 +36,32 @@ onMounted(() => {
   </header>
   <br />
 <div class="main-carousel" >
-<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="https://picsum.photos/id/77/400/200" class="d-block w-100" alt="...">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="https://picsum.photos/id/77/400/200" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="https://picsum.photos/id/57/400/200" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="https://picsum.photos/id/434/400/200" class="d-block w-100" alt="...">
+        </div>
+      </div>
     </div>
-    <div class="carousel-item">
-      <img src="https://picsum.photos/id/57/400/200" class="d-block w-100" alt="...">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="https://picsum.photos/id/164/400/200" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="https://picsum.photos/id/392/400/200" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="https://picsum.photos/id/419/400/200" class="d-block w-100" alt="...">
+        </div>
+      </div>
     </div>
-    <div class="carousel-item">
-      <img src="https://picsum.photos/id/434/400/200" class="d-block w-100" alt="...">
-    </div>
-  </div>
-</div>
-<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="https://picsum.photos/id/164/400/200" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="https://picsum.photos/id/392/400/200" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="https://picsum.photos/id/419/400/200" class="d-block w-100" alt="...">
-    </div>
-  </div>
-</div>
-
 </div>
 
 <div class="paddedSides">
@@ -115,7 +114,6 @@ onMounted(() => {
         <p>Taking a break from the demands of work and daily responsibilities during travel helps prevent burnout. Returning from a well-deserved vacation, individuals often find themselves recharged, leading to increased productivity upon their return.</p>
       </div>
     </div>
-    <!-- <div class="body"> -->
     <div class="conclusion">
       <p>
         In conclusion, the therapeutic benefits of travel extend far beyond leisure. 
@@ -137,7 +135,6 @@ onMounted(() => {
         </div>
       </p>
     </div>
-  <!-- </div> -->
   </div>
 </template>
 
@@ -166,6 +163,9 @@ onMounted(() => {
   background-color: rgba(88, 102, 31, 0.1);
   padding: 2vmin;
   border-radius: 10px;
+  font-family: "Salsa", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .reasonToTravel {
@@ -177,8 +177,6 @@ onMounted(() => {
 
   .pointsOnTravel {
     border: 1px solid purple; 
-  /* background-color: rgba(88, 102, 31, 0.6); */
-
     padding: 10px; 
   }
 
@@ -191,6 +189,7 @@ onMounted(() => {
     margin: 2vmin auto ;
     font-size: 1.5vmin;
     max-width: 90vmin;
+    
   }
 
   .steps {
@@ -201,6 +200,9 @@ onMounted(() => {
     max-width: 70vmin;
     margin: 2vmin auto;
     border-radius: 10px;
+    font-family: "Salsa", cursive;
+    font-weight: 400;
+    font-style: normal;
   }
 
   .conclusion span {

@@ -51,6 +51,9 @@ onMounted(() => {
 <style>
 .logoDiv {
   display: flex;
+  font-family: "Salsa", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 
 footer div{
@@ -79,6 +82,10 @@ footer {
   /* background-color:  rgba(235, 218, 249, 0.6); */
   /* background-color: rgba(226, 205, 242, 0.6);} */
   background-color: rgba(88, 102, 31, 0.6);
+  font-family: "Salsa", cursive;
+  font-weight: 400;
+  font-style: normal;
+  
 }
 
 .navNRouter {

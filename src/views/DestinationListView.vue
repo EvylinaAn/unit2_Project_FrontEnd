@@ -145,6 +145,9 @@ onMounted(() => {
   background-color:  rgba(226, 205, 242, 0.2);
   width: 50vmin;
   text-align: center;
+  font-family: "Salsa", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .listDestination h3{
