@@ -12,7 +12,6 @@ provide('checkSession', checkSession);
 
 onMounted(() => {
   checkSession()
-  // loggedState()
 })
 
 </script>

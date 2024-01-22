@@ -100,7 +100,7 @@ onMounted(() => {
 }
 
 .accordion-collapse {
-  padding-bottom: 1vmin;
+  padding-bottom: 1vmin;‹
 }
 
 .accordion-body {
