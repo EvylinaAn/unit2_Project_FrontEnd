@@ -28,6 +28,7 @@ onMounted(() => {
 </script>
 
 <template>
+  <div>
   <header>
     <br />
     <h1>Breezy Easy Escapade</h1>
@@ -115,27 +116,28 @@ onMounted(() => {
       </div>
     </div>
     <div class="conclusion">
-      <p>
+      <div class="conclusionDiv">
         In conclusion, the therapeutic benefits of travel extend far beyond leisure. 
         From stress reduction and enhanced creativity to cultural enrichment and improved social well-being, 
         the act of traveling has the power to positively impact various facets of an individual's life. 
         As we continue to explore the connection between travel and well-being, 
         it becomes clear that planning a getaway might just be the prescription for a healthier, more fulfilling life.
-        <br>
+        <br/>
         With all that being said we want to make it as easy as possible for you when you do travel. From our experience the most 
         stressful part of traveling, is making sure you've got everything you need to commence your journey in peace.
-        <br>
+        <br/>
         <div class="steps">
             1) So lets start with adding your destination 
             <RouterLink :to="'/destination'">  here. </RouterLink>  Once you have created a destination, you will have a pre - populated checklist to work with.
-            <br>
+        <br/>
             2) Step 2 is your checklist, one of the most important part for a stress free travel - Stay organized.
             <span>(we've tried making it as simple as possible and given you a recommended checklist, however feel free todo
               modify and add more if you please)</span>
         </div>
-      </p>
+      </div>
     </div>
   </div>
+</div>
 </template>
 
 <style>
