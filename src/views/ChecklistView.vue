@@ -1,26 +1,33 @@
 <script setup>
 import { ref, onMounted, inject } from "vue";
 import { useRoute } from "vue-router";
-import NewTodoInChecklist from '@/components/NewTodoInChecklist.vue'
+import NewTodoInChecklist from "@/components/NewTodoInChecklist.vue";
 
-const isLoggedIn = inject('isLoggedIn')
-const checkSession = inject('checkSession')
+const isLoggedIn = inject("isLoggedIn");
+const checkSession = inject("checkSession");
 
 const checklistBe = ref([]);
-const route = useRoute()
+const route = useRoute();
 
 function deleteTodo(todoId) {
-    fetch(`${import.meta.env.VITE_API_URL}/destination/${route.params.id}/checklist/${todoId}`, {
-      method: "DELETE"
-    })
+  fetch(
+    `${import.meta.env.VITE_API_URL}/destination/${
+      route.params.id
+    }/checklist/${todoId}`,
+    {
+      method: "DELETE",
+    }
+  )
     .then(() => {
-      fetchData()
+      fetchData();
     })
-    .catch(err => console.error(err))
-  }
+    .catch((err) => console.error(err));
+}
 
 function fetchData() {
-  fetch(`${import.meta.env.VITE_API_URL}/destination/${route.params.id}/checklist`)
+  fetch(
+    `${import.meta.env.VITE_API_URL}/destination/${route.params.id}/checklist`
+  )
     .then((response) => response.json())
     .then((result) => {
       checklistBe.value = result;
@@ -29,44 +36,109 @@ function fetchData() {
 }
 
 onMounted(() => {
-  checkSession()
-  fetchData()
-})
+  checkSession();
+  fetchData();
+});
 
+function updateTodoStatus(todoId, completed) {
+  fetch(
+    `${import.meta.env.VITE_API_URL}/destination/${
+      route.params.id
+    }/checklist/${todoId}`,
+    {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        completed: completed,
+      }),
+    }
+  )
+    .then(() => {
+      fetchData();
+    })
+    .catch((err) => console.error(err));
+}
 </script>
 
 <template>
   <header>
-    <br>
+    <br />
     <h1>Checklist</h1>
-    <br>
+    <br />
   </header>
-  <br>
+  <br />
   <div class="main">
-  <br>
+    <br />
     <!-- <h4>P.S thank us later</h4> -->
-    
+
     <div class="accordion" id="accordionExample">
       <div class="accordion-item">
         <div class="accordion-header-fixed">
           <h2 class="accordion-header">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-            TO-DO</button>
+            <button
+              class="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseOne"
+              aria-expanded="true"
+              aria-controls="collapseOne"
+            >
+              TO-DO
+            </button>
           </h2>
         </div>
-        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-          <div class="accordion-body" v-for="checklist in checklistBe" :key="checklist._id">
-            <input  class="form-check-input" type="checkbox" value="" id="checkbox_{{ checklist._id }}" v-if="isLoggedIn" style="border-color: rgba(152, 164, 106, 0.986);">
-            <label class="form-check-label" :for="'checkbox_' + checklist._id" >
-            {{ checklist.todo }} &nbsp;</label>
-            <button v-if="isLoggedIn" @click="deleteTodo(checklist._id)" class="btn btn-outline-secondary btn-sm">-</button>
+        <div
+          id="collapseOne"
+          class="accordion-collapse collapse show"
+          data-bs-parent="#accordionExample"
+        >
+          <div
+            class="accordion-body"
+            v-for="checklist in checklistBe"
+            :key="checklist._id"
+          >
+            <!-- <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="checkbox_{{ checklist._id }}"
+              v-if="isLoggedIn"
+              style="border-color: rgba(152, 164, 106, 0.986)"
+            /> -->
+            <input
+              class="form-check-input"
+              type="checkbox"
+              :value="checklist._id"
+              :id="'checkbox_' + checklist._id"
+              v-if="isLoggedIn"
+              :style="{
+                borderColor:
+                  isLoggedIn && checklist.completed
+                    ? 'rgba(152, 164, 106, 0.986)'
+                    : 'initial',
+              }"
+              @change="updateTodoStatus(checklist._id, !checklist.completed)"
+            />
+
+            <label class="form-check-label" :for="'checkbox_' + checklist._id">
+              {{ checklist.todo }} &nbsp;</label
+            >
+            <button
+              v-if="isLoggedIn"
+              @click="deleteTodo(checklist._id)"
+              class="btn btn-outline-secondary btn-sm"
+            >
+              -
+            </button>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <NewTodoInChecklist :fetchData="fetchData" v-if="isLoggedIn"/>
-</template> 
+  <NewTodoInChecklist :fetchData="fetchData" v-if="isLoggedIn" />
+</template>
 
 <style>
 .main {
@@ -92,7 +164,7 @@ onMounted(() => {
   border-color: rgba(152, 164, 106, 9);
 }
 
-.accordion-header-fixed{
+.accordion-header-fixed {
   position: -webkit-sticky !important;
   position: sticky !important;
   top: 0;
@@ -125,7 +197,6 @@ onMounted(() => {
   z-index: 1;
 }
 
-
 .accordion-button:focus {
   border-color: rgb(88, 102, 31);
   box-shadow: none;
@@ -134,5 +205,4 @@ onMounted(() => {
 .form-check-input:checked {
   background-color: rgba(152, 164, 106, 0.986);
 }
-
 </style>
